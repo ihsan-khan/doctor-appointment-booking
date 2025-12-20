@@ -19,7 +19,14 @@ new #[Layout('layouts.guest')] class extends Component
         $this->form->authenticate();
 
         Session::regenerate();
-
+        if(auth()->user()->role == 'admin'){
+            $this->redirectIntended(default: route('admin-dashboard', absolute: false), navigate: true);
+            return;
+        }
+        if(auth()->user()->role == 'doctor'){
+            $this->redirectIntended(default: route('doctor-dashboard', absolute: false), navigate: true);
+            return;
+        }
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 }; ?>
