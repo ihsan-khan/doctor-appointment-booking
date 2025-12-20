@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
 
 Route::view('/', 'welcome');
 
@@ -17,12 +19,12 @@ Route::view('profile', 'profile')
 
 Route::group(['middleware' => 'doctor'], function () {
 
-    Route::get('/doctor/dashboard', [DoctorController::class, 'loadDoctorDashboard'])
+    Route::get('/doctor/dashboard', [DoctorController::class, 'doctorDashboard'])
         ->name('doctor-dashboard');
 });
 
 Route::group(['middleware' => 'admin'], function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'loadAdminDashboard'])
+    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])
         ->name('admin-dashboard');
 });
 
