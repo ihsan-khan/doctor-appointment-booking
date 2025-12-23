@@ -16,51 +16,43 @@
 </head>
 
 <body class="antialiased font-sans">
-    <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-        <img id="background" class="absolute -left-20 top-0 max-w-[877px]"
-            src="https://laravel.com/assets/img/welcome/background.svg" />
-        <div
-            class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                {{-- header --}}
-                <livewire:top-bar-navigation />
-                <main id="content">
-                    <div class="py-10 bg-gray-200">
-                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                <livewire:hero-section />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="py-5 bg-gray-200">
-                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                {{-- <livewire:featured-doctors :speciality_id="0" /> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="py-5 bg-gray-200">
-                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                {{-- <livewire:specialist-cards /> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="py-5 bg-gray-200">
-                        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                {{-- <livewire:featured-articles /> --}}
-                            </div>
-                        </div>
-                    </div>
-                </main>
+    <!-- ========== HEADER ========== -->
+    <livewire:top-bar-navigation />
+    <!-- ========== END HEADER ========== -->
 
-                <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                </footer>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content">
+        <div class="py-10 bg-gray-200">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <livewire:hero-section />
+                </div>
             </div>
         </div>
-    </div>
+        <div class="py-5 bg-gray-200">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    {{-- <livewire:featured-doctors :speciality_id="0" /> --}}
+                </div>
+            </div>
+        </div>
+        <div class="py-5 bg-gray-200">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    {{-- <livewire:specialist-cards /> --}}
+                </div>
+            </div>
+        </div>
+        <div class="py-5 bg-gray-200">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    {{-- <livewire:featured-articles /> --}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
 </body>
 
 </html>
