@@ -30,9 +30,42 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                    @if (auth()->user() && auth()->user()->role == 'admin')
+                        <x-nav-link :href="route('admin-dashboard')" :active="request()->routeIs('admin-dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
-                    </x-nav-link>
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin-doctors')" :active="request()->routeIs('admin-doctors')" wire:navigate>
+                        {{ __('Doctors') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin-specialities')" :active="request()->routeIs('admin-specialities')" wire:navigate>
+                        {{ __('Specialities') }}
+                        </x-nav-link>
+                         <x-nav-link :href="route('admin-appointments')" :active="request()->routeIs('admin-appointments')" wire:navigate>
+                        {{ __('All Appointments') }}
+                        </x-nav-link>
+                    @endif
+                    @if (auth()->user() && auth()->user()->role == 'patient')
+                       <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('my-appointments')" :active="request()->routeIs('my-appointments')" wire:navigate>
+                        {{ __('My Appointments') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('articles')" :active="request()->routeIs('articles')" wire:navigate>
+                        {{ __('Articles') }}
+                        </x-nav-link>
+                    @endif
+                    @if (auth()->user() && auth()->user()->role == 'doctor')
+                        <x-nav-link :href="route('doctor-dashboard')" :active="request()->routeIs('doctor-dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('my-schedules')" :active="request()->routeIs('my-schedules')" wire:navigate>
+                        {{ __('Schedules') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('doctor-appointments')" :active="request()->routeIs('doctor-appointments')" wire:navigate>
+                        {{ __('My Appointments') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
